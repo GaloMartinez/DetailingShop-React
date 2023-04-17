@@ -7,7 +7,6 @@ function Item({  product, onSelect }) {
     onSelect(product.id);
   }
 
-
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg mt-16 mb-10 mx-16 ">
       <img className="w-full" src={product.pictureUrl} alt={product.title} />

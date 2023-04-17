@@ -12,7 +12,6 @@ function ItemDetailContainer() {
     async function fetchDataItem() {
 
       const item = await GetItem(itemId)
-      console.log(item);
       setProduct(item);
     }
 

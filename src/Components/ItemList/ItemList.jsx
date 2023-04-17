@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Item from "../Item/Item";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import { GetProducts } from "../Service/service";
+import { GetProductFilter, GetProducts } from "../Service/service";
 import { useParams } from "react-router-dom";
 
 
@@ -11,31 +11,44 @@ function ItemList() {
   const { categoryId } = useParams()
 
   useEffect(() => {
-    async function fetchData() {
-      const data = await GetProducts(categoryId);
+    async function fetchDataByCategory() {
+      const data = await GetProductFilter(categoryId);
       setProducts(data);
     }
-    fetchData();
+
+    if(categoryId){
+      fetchDataByCategory();
+    }
   }, [categoryId]);
 
+  useEffect(() => {
+    console.log(selectedProductId);
+
+    async function fetchData() {
+      const data = await GetProducts();
+      setProducts(data);
+    }
+ 
+    fetchData();
+  }, []);
+
   function handleSelectProduct(productId) {
+    console.log(productId);
     setSelectedProductId(productId);
   }
 
-  if (selectedProductId) {
-    return <ItemDetail productId={selectedProductId} />;
-  }
-
-
   return (
-    <div>
-      {products &&
-        products.map((product) => (
-          <Item
-            key={product.id}
-            product={product}
-            onSelect={handleSelectProduct}
-          />
+    <div>      
+      {
+        selectedProductId 
+        ? (<ItemDetail productId={selectedProductId} />)
+        : products 
+        && products.map((product) => (
+            <Item
+              key={product.id}
+              product={product}
+              onSelect={handleSelectProduct}
+            />
         ))}
     </div>
   )
