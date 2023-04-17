@@ -6,6 +6,9 @@ const products = [
     { id: '4', type: 'ceras' , title: 'Cera 1', description: 'verde', price: '800', pictureUrl: "/img/ilussionwax.jpeg" },
     { id: '5', type: 'ceras' , title: 'Cera 2', description: 'verde', price: '800', pictureUrl: "/img/watermelon.jpeg" },
     { id: '6',type: 'ceras' , title: 'Cera 3', description: 'verde', price: '800', pictureUrl: "/img/cherryquick.jpeg" },
+    { id: '7',type: 'microfibras' , title: 'Microfibra Gris', description: 'verde', price: '800', pictureUrl: "/img/microfibragris.jpg" },
+    { id: '8',type: 'microfibras' , title: 'Microfibra Gris y Rojo', description: 'verde', price: '800', pictureUrl: "/img/microfibragrisyrojo.jpg" },
+    { id: '9',type: 'microfibras' , title: 'Microfibra Azul', description: 'verde', price: '800', pictureUrl: "/img/microfibraazul.jpeg" },
 ]
 
 export function GetProducts() {
@@ -26,7 +29,7 @@ export function GetProductFilter(type){
                 if(product.type === type){
                     return product;
                 }
-            }); //filtro con el ID y que me devuelva ese ID product
+            }); 
             resolve(productsFilter);
         }, 2000)
     })

@@ -7,6 +7,7 @@ function ItemDetail({productId}) {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
+ 
     async function fetchData() {
       const data = await GetItem(productId);
       setProduct(data);

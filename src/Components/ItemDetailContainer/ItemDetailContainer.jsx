@@ -4,11 +4,13 @@ import ItemDetail from '../ItemDetail/ItemDetail';
 import { GetItem } from '../Service/service';
 import { useParams } from 'react-router-dom';
 
-function ItemDetailContainer() {
+
+function ItemDetailContainer({itemId}) {
   const [product, setProduct] = useState({})
   const { itemId } = useParams()
 
   useEffect(() => {
+  
     async function fetchDataItem() {
 
       const item = await GetItem(itemId)
@@ -23,16 +25,9 @@ function ItemDetailContainer() {
 
   return (
     <div>
-    {product ? (<ItemDetail
-        product={product}
-
-      />
-      ) : (
-        <p>Cargando...</p>
-      )}
-
+      {productId ? <ItemDetail productId={productId} /> : null}
     </div>
-  )
+  );
 }
 
 export default ItemDetailContainer
