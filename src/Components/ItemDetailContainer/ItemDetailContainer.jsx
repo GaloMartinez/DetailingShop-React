@@ -4,32 +4,13 @@ import ItemDetail from '../ItemDetail/ItemDetail';
 import { GetItem } from '../Service/service';
 import { useParams } from 'react-router-dom';
 
-
-function ItemDetailContainer({itemId}) {
-  const [product, setProduct] = useState({})
+function ItemDetailContainer() {
   const { itemId } = useParams()
-
-  useEffect(() => {
-  
-    async function fetchDataItem() {
-
-      const item = await GetItem(itemId)
-      setProduct(item);
-    }
-
-    fetchDataItem()
-
-  }, [itemId]);
-
-  // CONTINUAR 
-
+  const [product, setProduct] = useState(null)
   return (
-    <div>
-      {productId ? <ItemDetail productId={productId} /> : null}
-    </div>
+    <div> <ItemDetail productId={itemId}  /> </div>
   );
 }
 
 export default ItemDetailContainer
-
 

@@ -3,6 +3,7 @@ import Item from "../Item/Item";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { GetProductFilter, GetProducts } from "../Service/service";
 import { useParams } from "react-router-dom";
+import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
 
 
 function ItemList() {
@@ -15,42 +16,26 @@ function ItemList() {
 
   useEffect(() => {
     async function fetchData() {
-      if (categoryId) {
+      if (categoryId !== undefined) {
         const data = await GetProductFilter(categoryId);
         setProducts(data);
       } else {
         const data = await GetProducts();
         setProducts(data);
-        setSelectedProductId(null);
       }
     }
 
     fetchData();
   }, [categoryId]);
 
-  useEffect(() => {
-    async function fetchData() {
-      
-        const data = await GetProducts();
-        setProducts(data);
-        setSelectedProductId(null);
-      
-    }
-
-    fetchData();
-  }, []);
-
   function handleSelectProduct(productId) {
-    console.log(productId);
     setSelectedProductId(productId);
   }
 
   return (
     <div>
       {
-        selectedProductId
-          ? (<ItemDetail productId={selectedProductId} />)
-          : products
+         products
           && products.map((product) => (
             <Item
               key={product.id}
