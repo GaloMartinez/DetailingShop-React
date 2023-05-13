@@ -70,10 +70,10 @@ const Checkout = () => {
         }
     }
     if (loading) {
-        return <h1>Se esta generando su orden...</h1>
+        return <h1 className="font-bold text-2xl flex justify-center">Se esta generando su orden...</h1>
     }
     if (orderId) {
-        return <h1>El id de su orden es: {orderId}</h1>
+        return <h1 className="font-bold text-2xl flex justify-center">El id de su orden es: {orderId}</h1>
     }
     return (
         <div>
