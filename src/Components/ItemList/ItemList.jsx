@@ -1,27 +1,45 @@
 import { useEffect, useState } from "react";
 import Item from "../Item/Item";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import { getProducts } from "../Service/service";
 import { useParams } from "react-router-dom";
+import { getDocs, collection, query, where, orderBy } from "firebase/firestore"
+import { db } from "../Service/firebase/firebaseConfig";
 
 function ItemList() {
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [products, setProducts] = useState([]);
   const { categoryId } = useParams();
-
   useEffect(() => {
-    getProducts(categoryId).then((data) => setProducts(data));
+    const collectionRef = categoryId
+      ? query(collection(db, 'productos'), where('type', '==', categoryId))
+      : query(collection(db, 'productos'), orderBy("type", "asc"))
+
+    getDocs(collectionRef)
+      .then(response => {
+        const productsAdapted = response.docs.map(doc => {
+
+          const data = doc.data()
+          console.log(data);
+          return { id: doc.id, ...data }
+        })
+        setProducts(productsAdapted)
+        console.log(productsAdapted);
+      })
+      .catch(error => {
+        console.log(error)
+      })
+
   }, [categoryId]);
 
-  function handleSelectProduct(productId) {
-    console.log(productId);
-    setSelectedProductId(productId);
+  function handleSelectProduct(itemId) {
+    console.log(itemId);
+    setSelectedProductId(itemId);
   }
 
   return (
-    <div>
+    <>
       {selectedProductId ? (
-        <ItemDetail productId={selectedProductId} />
+        <ItemDetail itemId={selectedProductId} />
       ) : (
         products &&
         products.map((product) => (
@@ -32,7 +50,7 @@ function ItemList() {
           />
         ))
       )}
-    </div>
+    </>
   );
 }
 

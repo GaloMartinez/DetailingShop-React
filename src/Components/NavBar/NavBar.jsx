@@ -7,31 +7,48 @@ function NavBar() {
 
 
   return (
-    <nav className="flex-grow justify-center ">
-      <Link to={"/"}>
-        <h1 className='text-4xl font-bold uppercase  mt-5 text-center'>Detailing Shop</h1>
+    <>
+    
+    <nav className="h-32 max-h-16 mt-16 flex items-center bg-cyan-900">
+
+    <div className="">
+      <Link to={"/"} className="text-white">
+        <h1 className="text-2xl font-bold uppercase mt-0 ml-6">Detailing Shop</h1>
       </Link>
-      <ul className=' bg-cyan-900 flex justify-center items-center mt-3 '>
+    </div>
 
-        <li className="mr-6">
-          <Link to={"/category/shampoo"} className='bg-cyan-900 px-4 py-2 border rounded-md border-x-zinc-500 font-semibold text-white hover:bg-sky-900'>
-            Shampoo
-          </Link>
-        </li>
-        <li className="mr-6">
-          <Link to={"/category/ceras"} className='bg-cyan-900 px-4 py-2 border rounded-md border-x-zinc-500 font-semibold text-white hover:bg-sky-900'>
-            Ceras
-          </Link>
-        </li>
-        <li className="mr-6">
-          <Link to={"/category/microfibras"} className='bg-cyan-900 px-4 py-2 border rounded-md border-x-zinc-500 font-semibold text-white hover:bg-sky-900'>
-            Microfibras
-          </Link>
-        </li>
-        <li className=" mr-6 "><CartWidget /></li>
-      </ul>
+    <div className="flex  mx-auto  pr-36 text-lg">
 
-    </nav>
+      <div className="mx-2">
+        <Link to={"/category/shampoo"} className="bg-cyan-900 px-4 py-2 rounded-sm border-x-zinc-500 font-semibold text-white hover:bg-sky-900 flex items-center justify-center">
+          Shampoo
+        </Link>
+      </div>
+
+      <div className="mx-2">
+        <Link to={"/category/ceras"} className="bg-cyan-900 px-4 py-2 rounded-sm border-x-zinc-500 font-semibold text-white hover:bg-sky-900 h-full flex items-center justify-center">
+          Ceras
+        </Link>
+      </div>
+
+      <div className="mx-2">
+        <Link to={"/category/microfibras"} className="bg-cyan-900 px-4 py-2 rounded-sm border-x-zinc-500 font-semibold text-white hover:bg-sky-900 h-full flex items-center justify-center">
+          Microfibras
+        </Link>
+      </div>
+
+
+    </div>
+    
+    <div className="">
+        <CartWidget />
+      </div>
+
+  </nav>
+  
+  
+  </>
+
 
   )
 }

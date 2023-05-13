@@ -5,9 +5,13 @@ import { useParams } from "react-router-dom";
 function ItemDetailContainer() {
   const { itemId } = useParams();
 
-  // CONTINUAR
 
-  return <div>{itemId && <ItemDetail productId={itemId} />}</div>;
+
+  return <>
+  <div className="flex justify-center items-center h-screen">
+    {itemId && <ItemDetail itemId={itemId} />}
+    </div>
+    </>;
 }
 
 export default ItemDetailContainer;

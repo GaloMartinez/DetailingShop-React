@@ -1,22 +1,22 @@
 
-import { useContext } from 'react'
-import CartContext from '../Context/ContextProviders/CartContext'
 import cartImage from './assets/cartImage.svg'
+import { Link } from 'react-router-dom'
+import useCart from '../../hooks/useCart'
 function CartWidget() {
-  const {cart, limpiarCarrito, totalProductos } = useContext (CartContext)
-  
+  const { cart, totalProducts} = useCart();
 
-  const handleLimpiarCarrito = () => {
-    limpiarCarrito()
-  }
   console.log("Productos en el carrito: ", cart);
-  return (
-    <div className="fixed right-5 top-20 ">
-      <div className="flex items-center ">
-        <img src={cartImage} alt="cart-widget" />
-       <p>{totalProductos}</p>
 
-      </div>
+  return (
+    <div className=" top-0 right-0 mr-10 ">
+
+      <Link to="/cart" className="CartWidget" >
+        <div className="flex items-center ">
+          <img src={cartImage} alt="cart-widget" />
+          <p>{totalProducts}</p>
+        </div>
+      </Link>
+
     </div>
   )
 }
