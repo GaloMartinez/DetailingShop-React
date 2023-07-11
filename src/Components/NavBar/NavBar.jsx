@@ -8,16 +8,14 @@ function NavBar() {
 
   return (
     <>
-    
-    <nav className="h-32 max-h-16 mt-16 flex items-center bg-cyan-900">
-
-    <div className="">
+  <nav className="h-32 max-h-16 mt-16 flex justify-between items-center bg-cyan-900">
+    <div>
       <Link to={"/"} className="text-white">
         <h1 className="text-2xl font-bold uppercase mt-0 ml-6">Detailing Shop</h1>
       </Link>
     </div>
 
-    <div className="flex  mx-auto  pr-36 text-lg">
+    <div className="flex items-center justify-end text-lg flex-wrap">
 
       <div className="mx-2">
         <Link to={"/category/shampoo"} className="bg-cyan-900 px-4 py-2 rounded-sm border-x-zinc-500 font-semibold text-white hover:bg-sky-900 flex items-center justify-center">
@@ -37,17 +35,16 @@ function NavBar() {
         </Link>
       </div>
 
-
-    </div>
-    
-    <div className="">
+      <div className="mx-2">
         <CartWidget />
       </div>
 
+    </div>
+
   </nav>
-  
-  
-  </>
+</>
+
+
 
 
   )

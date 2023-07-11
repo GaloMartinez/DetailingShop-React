@@ -19,11 +19,11 @@ function ItemList() {
         const productsAdapted = response.docs.map(doc => {
 
           const data = doc.data()
-          console.log(data);
+       
           return { id: doc.id, ...data }
         })
         setProducts(productsAdapted)
-        console.log(productsAdapted);
+      
       })
       .catch(error => {
         console.log(error)
@@ -32,7 +32,7 @@ function ItemList() {
   }, [categoryId]);
 
   function handleSelectProduct(itemId) {
-    console.log(itemId);
+  
     setSelectedProductId(itemId);
   }
 

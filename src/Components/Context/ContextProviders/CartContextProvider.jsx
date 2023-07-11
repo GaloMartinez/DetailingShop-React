@@ -8,7 +8,7 @@ function CartContextProvider({children}) {
   const [totalProducts , setTotalProducts] = useState(0)
   const [quantityAdded, setQuantityAdded] = useState(0)
 
-  console.log(cart)
+
 
   const addProduct = (product, quantity) => {
     if (inCart(product.id)) {

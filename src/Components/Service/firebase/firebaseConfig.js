@@ -16,7 +16,7 @@ const firebaseConfig = {
 
 
 // Initialize Firebase
-console.log("0)Estoy configurando mi firebase con el objeto: ", firebaseConfig);
+
 
 const app = initializeApp(firebaseConfig);
 

@@ -25,7 +25,7 @@ const Checkout = () => {
                 total: totalCart(),
                 date: Timestamp.fromDate(new Date())
             }
-            console.log(totalCart)
+           
 
             const batch = writeBatch(db)
 

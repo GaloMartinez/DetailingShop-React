@@ -62,7 +62,7 @@ const CheckoutForm = ({onConfirm}) => {
         <div className='text-center px-6 pt-0 pb-8'>
             <button
                 type='submit'
-                className='mt-4 bg-cyan-900 hover:bg-gray-800  rounded-sm text-white font-bold py-2 px-4  focus:outline-none focus:shadow-outline'
+                className='mt-5 bg-cyan-900 hover:bg-gray-800  rounded-sm text-white font-bold py-2 px-4  focus:outline-none focus:shadow-outline'
             >
                 Crear Orden
             </button>
