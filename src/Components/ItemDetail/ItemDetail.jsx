@@ -7,8 +7,7 @@ import { db } from "../Service/firebase/firebaseConfig";
 
 function ItemDetail({ itemId }) {
   const [product, setProduct] = useState(null);
-
-  const { handleOnAdd, quantityAdded, } = useCart()
+  const { handleOnAdd, quantityAdded } = useCart();
 
   useEffect(() => {
     if (itemId) {
